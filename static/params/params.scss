@@ -1,0 +1,151 @@
+
+.form-control {
+	border: 1px solid #DFDFDF;
+
+	input[type=checkbox] + label:before {
+		content: '';
+		position: absolute;
+		top: 0.1em;
+		left: 0px;
+		display: block;
+		width: 1em;
+		height: 1em;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		background-position: 0;
+		background-color: transparent;
+	}
+}
+
+.box {
+
+	.form-control {
+		border: none;
+	}
+}
+
+.premission__params_list {
+	position: relative;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+
+	.premission__param {
+		flex: 1 0 1%;
+
+		&:hover {
+			.premission__param__list__summary {
+				display: none;
+			}
+			.premission__param__list__content {
+				z-index: 2;
+				display: block;
+				height: auto;
+				min-height: 100%;
+				width: auto;
+				min-width: 100%;
+				overflow-y: scroll;
+				background: #efefef;
+			}
+		}
+
+		.premission__param__label {
+		}
+
+		.premission__param__input {
+		}
+
+		.premission__param__list {
+			position: relative;
+			height: 40px;
+			margin-bottom: 5px;
+
+			&.allUnchecked {
+
+				[type=checkbox]:not([data-all-toggle]) + label {
+
+					&:before {
+						background-image: url('../../../static_admin/images/forms/checkbox-checked.png');
+						opacity: 0.3;
+					}
+				}
+			}
+		}
+
+		.premission__param__list__summary {
+			position: absolute;
+			z-index: 1;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			white-space: nowrap;
+
+			&:before {
+				content: '';
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+			}
+
+			.label {
+				vertical-align: middle;
+				display: inline-block;
+				width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+
+		.premission__param__list__content {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			display: none;
+			height: 100%;
+			max-height: 170px;
+			width: 100%;
+			padding: 1px;
+			overflow: hidden;
+		}
+
+		.premission__param__item {
+			padding: 5px 15px;
+			line-height: initial;
+
+			&:hover {
+				background-color: #f8f8f8;
+			}
+
+			.label {
+				position: relative;
+				width: 100%;
+				margin: 0px;
+
+				&:after {
+					content: '';
+					position: absolute;
+					top: -5px;
+					left: 0px;
+					right: 0px;
+					bottom: -5px;
+				}
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	.permission__slash {
+		flex: 0 0 auto;
+		margin: 0px 10px;
+		font-size: 36px;
+
+		display: flex;
+		align-items: center;
+	}
+}
