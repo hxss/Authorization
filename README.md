@@ -133,6 +133,8 @@ Phact::app()->user->hasPermission('admin:update', [
 Phact::app()->user->hasPermission('admin:update') == false 
 ```
 `//` каждый не уточненный параметр олицетворяет все возможные значения
+
+---
 ```
 Phact::app()->user->hasPermission('admin:update', [
 	'module' => '',
@@ -141,6 +143,8 @@ Phact::app()->user->hasPermission('admin:update', [
 ]) == false
 ```
 `//` значения указанные для модуля предполагает любое возможное, когда доступ разрешен к 2 конкретным значениям
+
+---
 ```
 Phact::app()->user->hasPermission('admin:update', [
 	'module' => 'editor',
@@ -149,6 +153,8 @@ Phact::app()->user->hasPermission('admin:update', [
 ]) == false
 ```
 `//` значения указанные для модуля отсутствует в списке разрешенных
+
+---
 ```
 Phact::app()->user->hasPermission('admin:update', [
 	'module' => 'main',
@@ -157,6 +163,8 @@ Phact::app()->user->hasPermission('admin:update', [
 ]) == true
 ```
 `//` значения указанные для модуля и ключа присутствуют в имеющихся перечислениях, значение параметра admin может быть любым
+
+---
 ```
 Phact::app()->user->hasPermission('admin:update', [
 	'module' => 'main',
@@ -164,17 +172,20 @@ Phact::app()->user->hasPermission('admin:update', [
 	'pk' => '4',
 ]) == true
 ```
+---
 ```
 Phact::app()->user->hasPermission('manage:update', [
 	'module' => 'main',
 	'pk' => '4',
 ]) == true
 ```
+---
 ```
 Phact::app()->user->hasPermission('admin:update', [
 	'module' => 'main',
 	'admin' => '',
 ]) == false
 ```
+---
 
 ## Настройка доступа в админке
