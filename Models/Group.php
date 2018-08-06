@@ -30,6 +30,7 @@ class Group extends Model
 				'class' => ManyToManyField::class,
 				'modelClass' => Route::class,
 				'through' => Permission::class,
+				'editable' => false,
 			],
 		];
 	}
