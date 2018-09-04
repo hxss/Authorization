@@ -36,17 +36,20 @@ class InitCommand extends Command
 			$route->label = "[{$label}:*]";
 			$id = $route->save();
 
-			if (!in_array($namespace, ['admin', 'manage'])) {
+			if (!in_array($namespace, [
+//				'admin',
+				'manage',
+			])) {
 				$routes[Group::GUEST][] = $id;
 			} else {
 				$routes[Group::STAFF][] = $id;
 			}
 		}
 
-		$route = new Route();
-		$route->name = "admin:login";
-		$route->label = "Admin: login";
-		$routes[Group::GUEST][] = $route->save();
+//		$route = new Route();
+//		$route->name = "admin:login";
+//		$route->label = "Admin: login";
+//		$routes[Group::GUEST][] = $route->save();
 
 		$route = new Route();
 		$route->name = "manage:login";

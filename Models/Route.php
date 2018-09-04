@@ -71,6 +71,17 @@ class Route extends Model
 		return $this->_paramsNames;
 	}
 
+	public function insert($fields = []) {
+		$id = static::objects()
+			->filter(['name' => $this->name])
+			->values(['id'], true);
+
+		if ($id)
+			return $id[0];
+
+		return parent::insert($fields);
+	}
+
 	public function __toString()
 	{
 		return $this->label ?? $this->name ?? '';
