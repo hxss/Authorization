@@ -1,5 +1,5 @@
 
-{if $value->isArray()}
+{if ($value is \Modules\Authorization\Orm\RouteParams) && $value->isArray()}
 	{* {$.dependency_css('Authorization/params/params.css', 'modules')}
 	{$.dependency_js('Authorization/params/paramsSet.js', 'modules')}
 	{$.dependency_js('Authorization/params/params.js', 'modules')} *}

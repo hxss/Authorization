@@ -10,7 +10,7 @@ class RouteField extends DropDownField
 
 	public function getValue()
 	{
-		if (!(int)$this->_value) {
+		if (!is_null($this->_value) && !(int)$this->_value) {
 			$route = new Route();
 			$route->name = $this->_value;
 			$route->label = $this->_value;

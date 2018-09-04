@@ -15,8 +15,10 @@ class ParamsField extends CharField
 		return $this->applyParamsLists($this->getValue());
 	}
 
-	private function applyParamsLists(RouteParams $params) {
-		$this->choices = $params->toList();
+	private function applyParamsLists($params = []) {
+		$this->choices = $params instanceof RouteParams
+			? $params->toList()
+			: $params;
 
 		return $params;
 	}
